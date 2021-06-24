@@ -23,6 +23,7 @@ $ npm install randomz
 ## Usage
 
 ```js
+
 const randomz = require('randomz');
 
 var randomInteger1 = randomz.int();
@@ -61,15 +62,11 @@ var randomArray2 = randomz.array(array, 3);
 // randomArray2 is an array of 3 elements from array
 
 
-
-var shuffled = randomz.shuffle(array);
-// shuffled is a shuffled version of array
-
-
 ```
 
 ### Typescript
 ```ts
+
 import randomz from 'randomz';
 
 randomInteger: Number = randomz.int();

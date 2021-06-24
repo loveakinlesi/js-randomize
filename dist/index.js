@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.shuffle = exports.array = exports.boolean = exports.floatArray = exports.intArray = exports.float = exports.int = void 0;
+exports.array = exports.boolean = exports.floatArray = exports.intArray = exports.float = exports.int = void 0;
 // generate integer from range
 function int(min = 0, max = 100) {
     // add runtime check for use in JavaScript
@@ -78,35 +78,3 @@ function array(array, count = 1) {
     return result;
 }
 exports.array = array;
-// generate shuffled array from array
-function shuffle(array) {
-    // add runtime check for use in JavaScript
-    if (!Array.isArray(array)) {
-        throw new Error('Invalid Inputs');
-    }
-    // get array length   
-    const length = array.length;
-    let result = [];
-    // List of value indices
-    let list = [];
-    // loop through "array length" times
-    for (let i = 0; i < length; i++) {
-        // generate random integer in range[0, array length]
-        let x = int(0, length - 1);
-        // check if value is already in list
-        while (list.includes(x)) {
-            // if already in list, generate new value
-            x = int(0, length - 1);
-        }
-        // if not, add to list
-        list.push(x);
-    }
-    // loop through "list length" times
-    for (let i = 0; i < length; i++) {
-        // ad to array value to result
-        result.push(array[list[i]]);
-    }
-    // return shuffled array
-    return result;
-}
-exports.shuffle = shuffle;

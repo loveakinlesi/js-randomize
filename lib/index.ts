@@ -78,41 +78,4 @@ export function array(array: any[], count: Number=1): any[] {
     return result
 }
 
-// generate shuffled array from array
-export function shuffle(array: any[]): any[] {
-    // add runtime check for use in JavaScript
-    if (!Array.isArray(array)) {
-        throw new Error('Invalid Inputs')
-     }
 
-    // get array length   
-    const length = array.length;
-
-    let result: any[] = [];
-
-    // List of value indices
-    let list: any[] =[];
-
-     // loop through "array length" times
-    for(let i = 0; i < length; i++){
-
-        // generate random integer in range[0, array length]
-        let x = int(0, length-1)
-
-        // check if value is already in list
-        while(list.includes(x)){
-            // if already in list, generate new value
-            x = int(0, length-1)
-        }
-        // if not, add to list
-        list.push(x)    
-    }
-
-    // loop through "list length" times
-    for(let i = 0; i < length; i++){
-        // ad to array value to result
-        result.push(array[list[i]])
-    }
-    // return shuffled array
-    return result
-}

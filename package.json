@@ -1,0 +1,29 @@
+{
+  "name": "randomz",
+  "version": "0.0.1",
+  "description": "Generate random values in your code",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "mocha",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iiitma/randomZ.git"
+  },
+  "keywords": [
+    "random"
+  ],
+  "author": "iiitma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iiitma/randomZ/issues"
+  },
+  "homepage": "https://github.com/iiitma/randomZ#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.1",
+    "typescript": "^4.3.4"
+  }
+}

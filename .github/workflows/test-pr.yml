@@ -6,13 +6,15 @@ on:
 
 
 jobs:
-  test_pull_request:
-        runs-on: ${{ matrix.os }}
-  strategy:
-    matrix:
-      node-version: [12.x, 14.x, 16.x],
-      os: [ubuntu-latest, windows-latest, macos-latest]
-      # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+  quality:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
   steps:
     - uses: actions/checkout@v2

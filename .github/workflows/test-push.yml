@@ -9,7 +9,7 @@ on:
 jobs:
   quality:
     runs-on: ${{ matrix.os }}
-    if: ${{ github.ref !== 'refs/heads/main' }}
+    if: ${{ github.ref != 'refs/heads/main' }}
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]

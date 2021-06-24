@@ -23,6 +23,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run build
-      - run: npm test
+
+      - name: Install project dependecies
+        run: npm ci
+
+      - name: Typescript to Javascript
+        run: npm run build
+
+      - name: Run Tests
+        run: npm test

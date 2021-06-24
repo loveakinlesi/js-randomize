@@ -82,7 +82,7 @@ describe('Random Float specified dp - float()', function () {
         // 3. ASSERT
         for (const i in ranges) {
             expect(result[i]).to.be.greaterThanOrEqual(ranges[i][0]).and.lessThanOrEqual(ranges[i][1]);
-            expect(result[i].toString().split('.')[1]?.length || 0).to.be.lessThanOrEqual(ranges[i][2])
+            expect(result[i].toString().split('.')[1] ? result[i].toString().split('.')[1].length : 0).to.be.lessThanOrEqual(ranges[i][2])
 
         }
 
@@ -179,7 +179,7 @@ describe('Array of Random Floats specified dp - floatArray()', function () {
             expect(result[i].length).to.be.equal(ranges[i][0]);
             for (const element of result[i]) {
                 expect(element).to.be.greaterThanOrEqual(ranges[i][1]).and.lessThanOrEqual(ranges[i][2]);
-                expect(element.toString().split('.')[1]?.length || 0).to.be.lessThanOrEqual(ranges[i][3])
+                expect(element.toString().split('.')[1] ? element.toString().split('.')[1].length : 0).to.be.lessThanOrEqual(ranges[i][3])
             }
         }
 

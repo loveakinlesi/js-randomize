@@ -1,0 +1,31 @@
+name: 🏳 Test PR
+
+on:
+  pull_request:
+    branches: [ main ]
+
+
+jobs:
+  test_pull_request:
+        runs-on: ${{ matrix.os }}
+  strategy:
+    matrix:
+      node-version: [12.x, 14.x, 16.x],
+      os: [ubuntu-latest, windows-latest, macos-latest]
+      # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+  steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install project dependecies
+      run: npm ci
+
+    - name: Typescript to Javascript
+      run: npm run build
+
+    - name: Run Tests
+      run: npm test

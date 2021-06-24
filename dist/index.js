@@ -2,9 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.shuffle = exports.array = exports.boolean = exports.floatArray = exports.intArray = exports.float = exports.int = void 0;
 // generate integer from range
-function int(min, max) {
-    if (min === void 0) { min = 0; }
-    if (max === void 0) { max = 100; }
+function int(min = 0, max = 100) {
     // add runtime check for use in JavaScript
     if (typeof max !== 'number' || typeof min !== 'number') {
         throw new Error('Invalid Inputs');
@@ -14,10 +12,7 @@ function int(min, max) {
 }
 exports.int = int;
 // generate float from range
-function float(min, max, dp) {
-    if (min === void 0) { min = 0; }
-    if (max === void 0) { max = 100; }
-    if (dp === void 0) { dp = 2; }
+function float(min = 0, max = 100, dp = 2) {
     // add runtime check for use in JavaScript
     if (typeof max !== 'number' || typeof min !== 'number' || typeof dp !== 'number') {
         throw new Error('Invalid Inputs');
@@ -27,17 +22,14 @@ function float(min, max, dp) {
 }
 exports.float = float;
 // generate integer Array from range and length
-function intArray(count, min, max) {
-    if (count === void 0) { count = 0; }
-    if (min === void 0) { min = 0; }
-    if (max === void 0) { max = 100; }
+function intArray(count = 0, min = 0, max = 100) {
     // add runtime check for use in JavaScript
     if (typeof max !== 'number' || typeof min !== 'number' || typeof count !== 'number') {
         throw new Error('Invalid Inputs');
     }
-    var result = [];
+    let result = [];
     // loop through "count" times
-    for (var i = 0; i < count; i++) {
+    for (let i = 0; i < count; i++) {
         // add integer to result array
         result.push(int(min, max));
     }
@@ -46,18 +38,14 @@ function intArray(count, min, max) {
 }
 exports.intArray = intArray;
 // generate float Array from range and length
-function floatArray(count, min, max, dp) {
-    if (count === void 0) { count = 0; }
-    if (min === void 0) { min = 0; }
-    if (max === void 0) { max = 100; }
-    if (dp === void 0) { dp = 2; }
+function floatArray(count = 0, min = 0, max = 100, dp = 2) {
     // add runtime check for use in JavaScript
     if (typeof max !== 'number' || typeof min !== 'number' || typeof dp !== 'number' || typeof count !== 'number') {
         throw new Error('Invalid Inputs');
     }
-    var result = [];
+    let result = [];
     // loop through "count" times
-    for (var i = 0; i < count; i++) {
+    for (let i = 0; i < count; i++) {
         // add float to result array
         result.push(float(min, max, dp));
     }
@@ -72,19 +60,18 @@ function boolean() {
 }
 exports.boolean = boolean;
 // generate array of elements from array and length
-function array(array, count) {
-    if (count === void 0) { count = 1; }
+function array(array, count = 1) {
     // add runtime check for use in JavaScript
     if (!Array.isArray(array) || typeof count !== 'number') {
         throw new Error('Invalid Inputs');
     }
     // get array length
-    var length = array.length;
-    var result = [];
+    const length = array.length;
+    let result = [];
     // loop through "count" times
-    for (var i = 0; i < count; i++) {
+    for (let i = 0; i < count; i++) {
         // generate random integer in range[0, array length]
-        var rand = Math.round(Math.random() * (length - 1));
+        const rand = Math.round(Math.random() * (length - 1));
         // add integer to resut array 
         result.push(array[rand]);
     }
@@ -98,14 +85,14 @@ function shuffle(array) {
         throw new Error('Invalid Inputs');
     }
     // get array length   
-    var length = array.length;
-    var result = [];
+    const length = array.length;
+    let result = [];
     // List of value indices
-    var list = [];
+    let list = [];
     // loop through "array length" times
-    for (var i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
         // generate random integer in range[0, array length]
-        var x = int(0, length - 1);
+        let x = int(0, length - 1);
         // check if value is already in list
         while (list.includes(x)) {
             // if already in list, generate new value
@@ -115,7 +102,7 @@ function shuffle(array) {
         list.push(x);
     }
     // loop through "list length" times
-    for (var i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
         // ad to array value to result
         result.push(array[list[i]]);
     }

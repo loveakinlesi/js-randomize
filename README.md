@@ -1,4 +1,4 @@
-# randomz
+# RandomZ
 
 ## Table of Contents
 
@@ -10,7 +10,7 @@
 
 
 ## Overview
-randomz is a simple javascript utility to generate random values in your code.
+RandomZ is a simple javascript utility to generate random values in your code.
 
 
 ## Installation

@@ -1,3 +1,5 @@
+[![🚀 Publish](https://github.com/iiitma/js-randomize/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/iiitma/js-randomize/actions/workflows/publish.yml)
+
 # js-randomize
 
 ## Table of Contents
@@ -61,6 +63,9 @@ var randomArray1 = random.array(array);
 var randomArray2 = random.array(array, 3);
 // randomArray2 is an array of 3 elements from array
 
+
+var shuffled = randomz.shuffle(array); 
+// shuffled is a shuffled version of array
 
 ```
 

@@ -7,7 +7,7 @@
   "scripts": {
     "test": "mocha",
     "build": "tsc",
-    "commit": "git add . && git-cz && git push",
+    "acp": "git add . && git-cz && git push",
     "semantic-release": "semantic-release --branches main"
   },
   "repository": {

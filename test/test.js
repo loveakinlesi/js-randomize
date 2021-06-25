@@ -241,3 +241,30 @@ describe('Random Array - array()', function () {
     });
 });
 
+
+describe('Suffle Array - shuffle()', function () {
+    it('should return a shuffled array', function () {
+
+        // 1. ARRANGE
+        const tests = [[ 31, 71, 34, 3, 25 ], ['Married', 'Single', 'Divorced', 'Widowed'],  ['Self Employed', 'Employed', 'Unemployed', 'Retired', 'Student'], ['0809', '0805', '0803', '0806', '0807', '0802', '0808', '0709', '0705', '0703', '7806', '0707', '0702', '0708', '0909', '0905', '0903', '0906', '0907', '0902', '0908']]
+
+        // 2. ACT
+        let result = []
+        for (const test of tests) {
+         y = random.shuffle(test)
+            result.push(y)
+        }
+
+        // 3. ASSERT
+        for (const i in tests) {
+            expect(Array.isArray(result[i])).to.be.equal(true);
+            expect(result[i].length).to.be.equal(tests[i].length);  
+            let index = []
+            for(const element of result[i]){
+                index.push(tests[i].indexOf(element))
+            }
+            expect( _.range(0, 10).join(',') !== index.join(',')).to.be.equal(true);
+        }
+
+    });
+});

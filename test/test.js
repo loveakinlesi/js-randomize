@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-const randomZ = require("../dist/index");
+const random = require("../dist/index");
 const _ = require('lodash');
 
 describe('Random Integer - int()', function () {
@@ -16,7 +16,7 @@ describe('Random Integer - int()', function () {
         // 2. ACT
         let result = []
         for (const range of ranges) {
-            range.length > 1 ? y = randomZ.int(range[0], range[1]) : y = randomZ.int()
+            range.length > 1 ? y = random.int(range[0], range[1]) : y = random.int()
             result.push(y)
         }
 
@@ -46,7 +46,7 @@ describe('Random Float - float()', function () {
         // 2. ACT
         let result = []
         for (const range of ranges) {
-            range.length > 1 ? y = randomZ.float(range[0], range[1]) : y = randomZ.float()
+            range.length > 1 ? y = random.float(range[0], range[1]) : y = random.float()
             result.push(y)
         }
 
@@ -75,7 +75,7 @@ describe('Random Float specified dp - float()', function () {
         // 2. ACT
         let result = []
         for (const range of ranges) {
-            y = randomZ.float(range[0], range[1], range[2])
+            y = random.float(range[0], range[1], range[2])
             result.push(y)
         }
 
@@ -102,7 +102,7 @@ describe('Array of Random Integers - intArray()', function () {
         // 2. ACT
         let result = []
         for (const range of ranges) {
-            y = randomZ.intArray(range[0], range[1], range[2])
+            y = random.intArray(range[0], range[1], range[2])
             result.push(y)
         }
 
@@ -135,7 +135,7 @@ describe('Array of Random Floats - floatArray()', function () {
         // 2. ACT
         let result = []
         for (const range of ranges) {
-            y = randomZ.floatArray(range[0], range[1], range[2])
+            y = random.floatArray(range[0], range[1], range[2])
             result.push(y)
         }
 
@@ -169,7 +169,7 @@ describe('Array of Random Floats specified dp - floatArray()', function () {
         // 2. ACT
         let result = []
         for (const range of ranges) {
-            y = randomZ.floatArray(range[0], range[1], range[2], range[3])
+            y = random.floatArray(range[0], range[1], range[2], range[3])
             result.push(y)
         }
 
@@ -195,7 +195,7 @@ describe('Random Boolean - boolean()', function () {
         // 2. ACT
         let result = []
         for (let i = 0; i < runs; i++ ) {
-            y = randomZ.boolean()
+            y = random.boolean()
             result.push(y)
         }
 
@@ -217,7 +217,7 @@ describe('Random Array - array()', function () {
         // 2. ACT
         let result = []
         for (const test of tests) {
-         y = randomZ.array(test[0], test[1])
+         y = random.array(test[0], test[1])
             result.push(y)
         }
 

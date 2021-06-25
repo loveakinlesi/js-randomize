@@ -1,4 +1,4 @@
-# RandomZ
+# js-randomize
 
 ## Table of Contents
 
@@ -10,13 +10,13 @@
 
 
 ## Overview
-RandomZ is a simple javascript utility to generate random values in your code.
+js-randomize is a simple javascript utility to generate random values in your code.
 
 
 ## Installation
 Using npm:
 ```zsh
-$ npm install randomz
+$ npm install js-randomize
 ```
 
 
@@ -24,41 +24,41 @@ $ npm install randomz
 
 ```js
 
-const randomz = require('randomz');
+const random = require('js-randomize');
 
-var randomInteger1 = randomz.int();
+var randomInteger1 = random.int();
 // randomInteger1 is an integer in range [0, 100] 
 
-var randomInteger2 = randomz.int(1,10);
+var randomInteger2 = random.int(1,10);
 // randomInteger2 is an integer in range [1, 10] 
 
 
-var randomFloat1 = randomz.float();
+var randomFloat1 = random.float();
 // randomFloat1 is a float in range [0, 100] to 2 d.p
 
-var randomFloat2 = randomz.float(1,10);
+var randomFloat2 = random.float(1,10);
 // randomFloat2 is a float in range [1, 10] to 2 d.p
 
-var randomFloat3 = randomz.float(1,10, 3);
+var randomFloat3 = random.float(1,10, 3);
 // randomFloat3 is a float in range [1, 10]  to 3 d.p
 
 
 
-var randomIntegerArray1 = randomz.intArray(5, 1, 30);
+var randomIntegerArray1 = random.intArray(5, 1, 30);
 // randomIntegerArray1 is an array of 5 integers in range [1, 30]
 
-var randomIntegerArray2 = randomz.floatArray(5, 1, 30, 3);
+var randomIntegerArray2 = random.floatArray(5, 1, 30, 3);
 // randomIntegerArray2 is an array of 5 integers in range [1, 30] to 3 d.p
 
 
-var randomBoolean = randomz.boolean();
+var randomBoolean = random.boolean();
 // randomBoolean is a boolean
 
 const array = [1,2,3,4,5];
-var randomArray1 = randomz.array(array);
+var randomArray1 = random.array(array);
 // randomArray1 is an array of 1 element from array
 
-var randomArray2 = randomz.array(array, 3);
+var randomArray2 = random.array(array, 3);
 // randomArray2 is an array of 3 elements from array
 
 
@@ -67,13 +67,13 @@ var randomArray2 = randomz.array(array, 3);
 ### Typescript
 ```ts
 
-import randomz from 'randomz';
+import random from 'js-randomize';
 
-randomInteger: Number = randomz.int();
+randomInteger: Number = random.int();
 
 or
 
-import { int, float, boolean, array, shuffle } from 'randomz';
+import { int, float, boolean, array, shuffle } from 'js-randomize';
 randomInteger1: Number = int(1, 3);
 
 ```

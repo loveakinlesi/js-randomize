@@ -9,7 +9,7 @@ on:
       - '**'
 
 jobs:
-  quality-checks:
+  tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -38,7 +38,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest 
     if: ${{ github.ref == 'refs/heads/main' }}
-    needs: [quality]
+    needs: [tests]
 
     steps:
       - name: Checkout Repository

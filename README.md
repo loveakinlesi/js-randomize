@@ -2,6 +2,11 @@
 
 [![🚀 Publish](https://github.com/loveakinlesi/js-randomize/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/loveakinlesi/js-randomize/actions/workflows/publish.yml) ![](https://badgen.net/bundlephobia/min/js-randomize?color=green) ![](https://badgen.net/npm/v/js-randomize) ![](https://badgen.net/npm/types/js-randomize) 
 
+
+> **⚠️ Breaking Changes in Version 2.0.0**  
+> Version 2.0.0 of `js-randomize` introduces breaking changes. Please refer to the [CHANGELOG](CHANGELOG.md) for details on what has changed and how to adapt your code.
+
+
 ## Table of Contents
 
 - **[Overview](#overview)**

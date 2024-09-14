@@ -8,13 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - **Function Renaming**: 
   - `int()` is now `integer()`
-  - `array()` is now `pick()`
-  
-- **Updated Functionality**: 
-  - **`integer(min: number = 0, max: number = 100): number`**: Throws an error if `min` is greater than `max`.
-  - **`float(min: number = 0, max: number = 100, precision: number = 2): number`**: Throws an error if `precision` is negative.
-  - **`pick<T>(arr: T[]): T | null`**: Returns `null` if the array is empty.
-  - **`sample<T>(arr: T[], count: number): T[]`**: Throws an error if `count` exceeds the length of `arr`.
+  - `array()` is now `sample()`
 
 ### New Features
 

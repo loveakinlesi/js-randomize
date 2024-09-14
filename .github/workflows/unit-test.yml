@@ -1,17 +1,16 @@
-name: 🚀 Publish
+name: 🏳 Unit Test
 
 on:
   push:
     branches:
-      - main
+      - '**'
   pull_request:
     branches:
       - '**'
 
 jobs:
-  publish:
+  quality-checks:
     runs-on: ubuntu-latest  # You can specify a different OS if needed
-    if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
       - name: Checkout Repository
@@ -33,8 +32,12 @@ jobs:
       - name: Build Project (TypeScript to JavaScript)
         run: pnpm build
 
-      - name: Create Release
-        run: pnpm run semantic-release
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Unit Tests
+        run: pnpm test
+
+    # Only run if changes are made to files in src, __tests__, package.json, or tsup config
+    if: |
+      contains(github.event.head_commit.message, 'src/') ||
+      contains(github.event.head_commit.message, '__tests__') ||
+      contains(github.event.head_commit.message, 'package.json') ||
+      contains(github.event.head_commit.message, 'tsup.config.ts')

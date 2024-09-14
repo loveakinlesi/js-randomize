@@ -1,93 +1,134 @@
-[![🚀 Publish](https://github.com/iiitma/js-randomize/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/iiitma/js-randomize/actions/workflows/publish.yml)
-
 # js-randomize
+
+[![🚀 Publish](https://github.com/loveakinlesi/js-randomize/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/loveakinlesi/js-randomize/actions/workflows/publish.yml) ![](https://badgen.net/bundlephobia/min/js-randomize?color=green) ![](https://badgen.net/npm/v/js-randomize) ![](https://badgen.net/npm/types/js-randomize) 
 
 ## Table of Contents
 
- - **[Overview](#overview)**
- - **[Installation](#installation)**
- - **[Usage](#usage)**
- - **[Contributing](#contributing)**
- - **[License](#license)**
-
+- **[Overview](#overview)**
+- **[Installation](#installation)**
+- **[Usage](#usage)**
+- **[Contributing](#contributing)**
+- **[License](#license)**
 
 ## Overview
-js-randomize is a simple javascript utility to generate random values in your code.
 
+`js-randomize` is a lightweight TypeScript library that provides utility functions for generating random integers, floats, booleans, arrays, and strings. It supports custom random number generators and is perfect for applications like games, testing, or simulations.
 
 ## Installation
-Using npm:
-```zsh
-$ npm install js-randomize
+
+To install using `pnpm`:
+
+```bash
+pnpm add js-randomize
 ```
 
+Or, using `npm`:
+
+```bash
+npm install js-randomize
+```
 
 ## Usage
 
-```js
+### Importing
 
-const random = require('js-randomize');
+Since the package is now ESM-only, use the `import` syntax to include it in your project:
 
-var randomInteger1 = random.int();
-// randomInteger1 is an integer in range [0, 100] 
+```ts
+import { Randomize } from 'js-randomize';
 
-var randomInteger2 = random.int(1,10);
-// randomInteger2 is an integer in range [1, 10] 
-
-
-var randomFloat1 = random.float();
-// randomFloat1 is a float in range [0, 100] to 2 d.p
-
-var randomFloat2 = random.float(1,10);
-// randomFloat2 is a float in range [1, 10] to 2 d.p
-
-var randomFloat3 = random.float(1,10, 3);
-// randomFloat3 is a float in range [1, 10]  to 3 d.p
-
-
-
-var randomIntegerArray1 = random.intArray(5, 1, 30);
-// randomIntegerArray1 is an array of 5 integers in range [1, 30]
-
-var randomIntegerArray2 = random.floatArray(5, 1, 30, 3);
-// randomIntegerArray2 is an array of 5 integers in range [1, 30] to 3 d.p
-
-
-var randomBoolean = random.boolean();
-// randomBoolean is a boolean
-
-const array = [1,2,3,4,5];
-var randomArray1 = random.array(array);
-// randomArray1 is an array of 1 element from array
-
-var randomArray2 = random.array(array, 3);
-// randomArray2 is an array of 3 elements from array
-
-
-var shuffled = randomz.shuffle(array); 
-// shuffled is a shuffled version of array
-
+const randomize = new Randomize(); // Use the default Math.random() or pass a custom random generator
 ```
 
-### Typescript
+### Generating Random Integers
+
 ```ts
+const randomInt = randomize.integer(1, 10);
+// randomInt is an integer between 1 and 10 (inclusive)
+```
 
-import random from 'js-randomize';
+### Generating Random Floats
 
-randomInteger: Number = random.int();
+```ts
+const randomFloat = randomize.float(0, 1, 3);
+// randomFloat is a float between 0 and 1 with 3 decimal places
+```
 
-or
+### Generating an Array of Random Integers
 
-import { int, float, boolean, array, shuffle } from 'js-randomize';
-randomInteger1: Number = int(1, 3);
+```ts
+const randomIntArray = randomize.intArray(5, 1, 100);
+// randomIntArray is an array of 5 random integers between 1 and 100
+```
 
+### Generating an Array of Random Floats
+
+```ts
+const randomFloatArray = randomize.floatArray(5, 0, 1, 2);
+// randomFloatArray is an array of 5 random floats between 0 and 1 with 2 decimal places
+```
+
+### Generating a Random Boolean
+
+```ts
+const randomBool = randomize.boolean();
+// randomBool is either true or false
+```
+
+### Picking a Random Element from an Array
+
+```ts
+const array = ['apple', 'banana', 'cherry'];
+const randomElement = randomize.pick(array);
+// randomElement is a random item from the array
+```
+
+### Sampling Multiple Non-Repeating Elements from an Array
+
+```ts
+const randomSample = randomize.sample(array, 2);
+// randomSample contains 2 random non-repeating items from the array
+```
+
+### Shuffling an Array
+
+```ts
+const shuffledArray = randomize.shuffle(array);
+// shuffledArray is a shuffled version of the original array
+```
+
+### Generating a Random String
+
+```ts
+const randomString = randomize.string(8);
+// randomString is a random 8-character string (alphanumeric by default)
+```
+
+### Using a Custom Random Generator
+
+You can also provide a custom random generator function:
+
+```ts
+const customRandomFn = () => 0.5;
+const customRandomize = new Randomize(customRandomFn);
+
+const randomInt = customRandomize.integer(1, 10);
+// With the custom random function, the result will always be 5
+```
+
+## TypeScript Usage
+
+```ts
+import { Randomize } from 'js-randomize';
+
+const randomize = new Randomize();
+const randomInt: number = randomize.integer(1, 10);
 ```
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-Please make sure to update tests as appropriate.
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change. Make sure to update tests as appropriate.
 
 ## License
-[MIT](./LICENSE)
 
-<!-- ### Keywords -->
+[MIT](./LICENSE)

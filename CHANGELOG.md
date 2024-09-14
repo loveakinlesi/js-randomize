@@ -1,11 +1,9 @@
-# [1.2.0](https://github.com/loveakinlesi/js-randomize/compare/v1.1.1...v1.2.0) (2024-09-14)
+# [1.2.0](https://github.com/loveakinlesi/js-randomize/compare/v1.1.1...v2.0.0) (2024-09-14)
 
 
 ### Features
 
 * :technologist: complete revamp of project ([626ebd9](https://github.com/loveakinlesi/js-randomize/commit/626ebd95c911647da5a2453c9dd40aa1f478d08e))
-
-## [2.0.0] - 2024-09-14
 
 ### Breaking Changes
 

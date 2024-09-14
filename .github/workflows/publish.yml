@@ -9,10 +9,36 @@ on:
       - '**'
 
 jobs:
+  quality-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4  
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4  
+        with:
+          node-version: 18.x 
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 'latest'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Project (TypeScript to JavaScript)
+        run: pnpm build
+
+      - name: Run Unit Tests
+        run: pnpm test
+
   publish:
     runs-on: ubuntu-latest 
     if: ${{ github.ref == 'refs/heads/main' }}
-    needs: [quality-checks]
+    needs: [quality]
 
     steps:
       - name: Checkout Repository

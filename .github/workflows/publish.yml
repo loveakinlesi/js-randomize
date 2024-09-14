@@ -10,8 +10,9 @@ on:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest  # You can specify a different OS if needed
+    runs-on: ubuntu-latest 
     if: ${{ github.ref == 'refs/heads/main' }}
+    needs: [quality-checks]
 
     steps:
       - name: Checkout Repository
@@ -20,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4  
         with:
-          node-version: 18.x  # Specify the Node.js version you want to use
+          node-version: 18.x
 
       - name: Install pnpm
         uses: pnpm/action-setup@v3

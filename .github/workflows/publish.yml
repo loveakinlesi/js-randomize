@@ -2,58 +2,70 @@ name: 🚀 Publish
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: '*'
-
+    branches:
+      - '**'
 
 jobs:
-  quality:
+  quality-checks:
     runs-on: ${{ matrix.os }}
-    
     strategy:
       matrix:
-        node-version: [ 12.x, 14.x, 16.x]
+        node-version: [18.x, 20.x]  
         os: [ubuntu-latest, windows-latest, macos-latest]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v4  
+        
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4  
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install project dependecies
-        run: npm ci
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8  
 
-      - name: Typescript to Javascript
-        run: npm run build
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Project (TypeScript to JavaScript)
+        run: pnpm build
 
       - name: Run Tests
-        run: npm test
-        
-        
+        run: pnpm test
+
   publish:
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/main' }}
-    needs: [quality]
-    
+    needs: [quality-checks]
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v4  
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4  
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20.x  
 
-      - name: Install project dependecies
-        run: npm ci
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8  
 
-      - name: Typescript to Javascript
-        run: npm run build
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Project (TypeScript to JavaScript)
+        run: pnpm build
 
       - name: Create Release
-        run: npm run semantic-release
-        env: 
+        run: pnpm semantic-release
+        env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

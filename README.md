@@ -37,8 +37,6 @@ npm install js-randomize
 
 ### Importing
 
-Since the package is now ESM-only, use the `import` syntax to include it in your project:
-
 ```ts
 import { Randomize } from 'js-randomize';
 
